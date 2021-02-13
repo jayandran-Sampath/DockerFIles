@@ -1,0 +1,22 @@
+FROM ubuntu:20.04
+
+RUN apt-get update
+
+RUN apt-get -y install curl gnupg
+
+RUN curl -sL https://deb.nodesource.com/setup_14.x  | bash -
+
+RUN apt-get install nodejs -y
+
+RUN node -v
+
+RUN npm -v
+
+RUN npm -g config set user root
+
+RUN npm install -g appium
+
+ENTRYPOINT appium
+
+CMD -p 4723
+
